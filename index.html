@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PKY Advogados</title>
+<meta name="description" content="Pimentel & Kao Yien Advogados — Direito Empresarial. Serra/ES e São Paulo/SP, atendimento em todo o Brasil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Tokens oficiais PKY */
+    --pky-navy-900:#0B111C;
+    --pky-navy-700:#131D3A;
+    --pky-gold:#C9A862;
+    --pky-gold-dark:#A98547;
+    --pky-offwhite:#F7F5F2;
+    --pky-text-on-dark:#BFC5CF;
+    --pky-logo-blue:#C2C9D9;
+    --pky-gold-gradient:linear-gradient(135deg,#C9A862,#A98547);
+    --pky-border-on-dark:rgb(194 201 217 / .2);
+    --pky-radius:3px;
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--pky-navy-900)}
+  body{
+    font-family:var(--font-body);
+    color:var(--pky-offwhite);
+    min-height:100vh;
+    background-color:var(--pky-navy-900);
+    /* grade marinho */
+    background-image:
+      radial-gradient(90% 55% at 50% 0%, rgb(19 29 58 / .95) 0%, transparent 70%),
+      linear-gradient(rgb(194 201 217 / .055) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(194 201 217 / .055) 1px, transparent 1px);
+    background-size:100% 100%, 40px 40px, 40px 40px;
+    background-position:center top, center top, center top;
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* vinheta para a grade sumir nas bordas */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 40%, transparent 45%, var(--pky-navy-900) 100%);}
+  main{position:relative;max-width:480px;margin:0 auto;padding:52px 16px 40px;text-align:center}
+
+  .logo{width:220px;max-width:70%;margin:0 auto 22px}
+  .logo svg{display:block;width:100%;height:auto}
+
+  .name{
+    font-family:var(--font-body);font-weight:500;
+    font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--pky-gold);
+    padding-left:.42em; /* compensa o tracking para centralizar */
+  }
+  .tag{margin:18px auto 0;max-width:340px;color:var(--pky-text-on-dark);font-size:15px;line-height:1.55}
+  .tag em{font-family:var(--font-display);font-style:italic;color:var(--pky-offwhite);font-size:16.5px}
+
+  .divider{display:flex;align-items:center;gap:12px;margin:30px 0 18px;color:var(--pky-gold);font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--pky-border-on-dark)}
+
+  .btn{
+    display:flex;align-items:center;gap:14px;width:100%;
+    padding:16px 18px;margin-bottom:12px;border-radius:14px;
+    text-decoration:none;color:var(--pky-offwhite);text-align:left;
+    background:rgb(19 29 58 / .72);
+    border:1px solid var(--pky-border-on-dark);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+  }
+  .btn:hover,.btn:focus-visible{transform:translateY(-2px);border-color:var(--pky-gold);background:rgb(19 29 58 / .95);outline:none}
+  .btn .ic{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgb(201 168 98 / .12);color:var(--pky-gold)}
+  .btn .ic svg{width:20px;height:20px}
+  .btn .tx{flex:1;min-width:0}
+  .btn .t{display:block;font-weight:600;font-size:15.5px}
+  .btn .d{display:block;margin-top:2px;color:var(--pky-text-on-dark);font-size:13px;line-height:1.35}
+  .btn .ar{flex:none;color:var(--pky-gold);opacity:.85}
+
+  .btn.primary{background:var(--pky-gold-gradient);border-color:transparent;color:var(--pky-navy-900);backdrop-filter:none}
+  .btn.primary .ic{background:rgb(11 17 28 / .12);color:var(--pky-navy-900)}
+  .btn.primary .d{color:rgb(11 17 28 / .72)}
+  .btn.primary .ar{color:var(--pky-navy-900)}
+  .btn.primary:hover{background:linear-gradient(135deg,#D3B675,#B08D4E)}
+
+  .addr{margin-top:28px;color:var(--pky-text-on-dark);font-size:13px;line-height:1.6}
+  .addr b{color:var(--pky-offwhite);font-weight:500}
+  .social{display:flex;justify-content:center;gap:12px;margin-top:20px}
+  .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--pky-border-on-dark);color:var(--pky-gold);background:rgb(11 17 28 / .6);transition:border-color .15s}
+  .social a:hover{border-color:var(--pky-gold)}
+  .social svg{width:19px;height:19px}
+  footer{margin-top:28px;color:rgb(191 197 207 / .55);font-size:11px;line-height:1.6}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -4 2004 720" role="img" aria-label="PKY Advogados"><path fill="#C9A862" fill-rule="evenodd" d="M512 681.5L480.5 650L272.3 650L64 650L64 356.5L64 63L240.8 63L417.5 63L414 65.8C412.1 67.3 407.8 70.8 404.5 73.5C396 80.7 304.9 156.7 244 207.5C215.6 231.2 179.7 261.1 164 274C148.4 286.9 134 298.9 132.1 300.7L128.5 303.8L128.2 336.2C128.1 354 128.3 372 128.7 376.3L129.5 384.1L359 192.9C485.2 87.8 588.6 1.3 588.8 0.9C589 0.4 461.2 0 295.7 0L2.3 0L1.7 63.2C1.3 97.9 1 229.9 1 356.5C1 483.1 1.3 615.1 1.7 649.8L2.3 713L272.9 713L543.5 713L512 681.5ZM714 701.2L713.9 689.5L676.3 651.5C655.6 630.6 582.6 557.3 514.1 488.7L389.5 363.9L393.4 360.7C397.7 357.2 448.5 315 609.8 180.8L714 94L714 53.4L714 12.8L712.2 14.1C711.3 14.9 700.1 24 687.5 34.4C663.5 54.2 652.6 63.3 548 150.6C425.5 252.9 298.1 358.9 261 389.6C219.4 424 152.5 479.2 138.3 490.9L129.2 498.5L128.5 507.7C127.6 519.3 128.3 579.6 129.3 580.6C129.7 581 131.5 580 133.3 578.3C135 576.7 147.5 566.1 161 554.8C174.5 543.6 197.9 524.1 213 511.4C228.1 498.8 258.3 473.6 280 455.4C301.7 437.2 324.2 418.5 329.9 413.7C335.6 408.9 340.6 405 340.9 405C341.2 405 410.8 474.3 495.5 559L649.5 713L681.7 713L714 713L714 701.2ZM714 387C714 279.8 713.7 192 713.2 192.1C712.8 192.1 699 203.5 682.5 217.3L652.5 242.5L652.2 381.9L652 521.4L682.2 551.7C698.8 568.4 712.8 582 713.2 582C713.6 582 714 494.2 714 387Z"/><path fill="#F7F5F2" fill-rule="evenodd" d="M1043.3 466.2C1043.7 441.1 1044 409.2 1044 395.4C1044 373.4 1044.2 370.1 1045.6 369.6C1046.5 369.3 1056 369 1066.8 369C1123.1 368.9 1158.4 363.2 1192.3 348.4C1207 342 1218.1 334.7 1229.6 323.7C1248.9 305.3 1260.7 283.6 1266.6 255.7C1269.1 244.1 1269.1 214 1266.6 201.6C1260.5 171.1 1244.7 143.3 1223.7 126.2C1203 109.3 1176.6 97 1150.3 92.1C1120.2 86.4 1125.7 86.7 1033 86.3C985.4 86 942.8 86.1 938.2 86.5L930 87.2L930 299.6L930 512L986.3 512L1042.7 512L1043.3 466.2ZM1400.1 427.5C1399.8 348.6 1400.1 331.3 1402 332.5C1402.4 332.8 1412 345.9 1423.2 361.7C1441.6 387.6 1471 429.3 1524.7 505.8L1529.1 512L1593.1 512C1634.3 512 1657 511.7 1657 511C1657 509.6 1611.5 442.6 1560.8 369.6C1551.6 356.3 1532.3 327.9 1517.9 306.5C1503.5 285.1 1487.7 261.8 1482.8 254.9C1478 248 1474 242 1474 241.6C1474 241.3 1479.1 234.9 1485.2 227.4C1491.4 219.9 1497.6 212.3 1499 210.6C1501.3 207.6 1552 146.4 1576 117.5C1589.1 101.7 1600 87.8 1600 86.7C1600 85.5 1591.6 86 1589.9 87.3C1588.6 88.3 1569.9 110.9 1547 139C1544 142.8 1529.3 160.6 1514.4 178.6C1485.9 213.3 1462.1 242.4 1437.5 273C1418.7 296.3 1402.9 315 1401.8 315C1401.4 315 1400.9 296.9 1400.9 274.8C1400.8 252.6 1400.4 201.2 1400.1 160.5L1399.5 86.5L1344.5 86.3C1314.2 86.1 1288.9 86.4 1288.1 86.9C1287 87.6 1286.7 121.6 1286.6 298.9C1286.5 485.6 1286.7 510.2 1288 511C1288.9 511.6 1311.1 511.9 1345 511.7L1400.5 511.5L1400.1 427.5ZM1050.5 360.3C1048.3 360 1045.9 359.3 1045.1 358.7C1044 357.7 1043.8 337.3 1044.2 228C1044.5 156.8 1045 97.7 1045.4 96.8C1047.1 92.9 1076 93.7 1088.5 98C1111.2 105.8 1132.1 127.2 1142.3 153C1146.3 163.1 1150.7 179.5 1152.4 190.6C1154.5 204.2 1154.6 237.5 1152.5 251.9C1147.4 286.4 1134.2 317.1 1116.1 336.3C1097.8 355.7 1077.7 363 1050.5 360.3Z"/><path fill="#C9A862" fill-rule="evenodd" d="M1862 409L1862.5 306.5L1870.4 294.5C1879.5 280.6 1894.4 256.6 1908.5 233C1920.9 212.1 1981.3 114.2 1991 99.2C1995 93 1997.9 87.6 1997.5 87.2C1996.6 86.3 1865.4 86.3 1864.5 87.2C1864.1 87.6 1863.5 135.4 1863.1 193.4C1862.7 251.5 1862.1 299.2 1861.8 299.6C1859.8 301.5 1856.4 296.5 1818 233.5C1808.3 217.6 1794 194.6 1786.3 182.5C1768.9 155.1 1749.2 123.3 1737 102.9L1727.7 87.3L1715.1 86.7C1695.1 85.6 1600 85.9 1600 86.9C1600 87.5 1606.4 97.6 1614.2 109.5C1639.5 147.8 1664.6 187.5 1711 262.5C1735.4 301.9 1748 323.3 1749.2 327.3C1750.2 330.6 1750.5 351.6 1750.5 420.8C1750.5 499.1 1750.7 510.2 1752 511C1752.9 511.6 1774.4 511.9 1807.5 511.7L1861.5 511.5L1862 409Z"/><path fill="#C2C9D9" fill-rule="evenodd" d="M1332.3 626.5C1351.2 621.6 1361 603.9 1355.4 585C1353.3 577.9 1343.9 568.3 1336.5 565.7C1329.5 563.3 1318.6 563.4 1311.5 566.1C1304.8 568.6 1297.4 575.6 1294 582.6C1290.8 589.2 1290.7 601.4 1293.7 608.1C1297.7 617 1305.8 623.8 1315.8 626.5C1322.1 628.3 1325.5 628.3 1332.3 626.5ZM1458.3 627C1464.9 625.7 1472.2 622.7 1474.1 620.4C1475.8 618.3 1476.6 601.5 1475.1 597.7C1474.2 595.3 1473.5 594.9 1470.8 595.2L1467.5 595.5L1467.2 605.6L1466.9 615.7L1464.2 617C1460 618.9 1450.8 619.4 1444.9 618C1437.5 616.2 1430.8 609.5 1429 602.1C1425.9 589 1432.4 577 1444.7 572.9C1450.6 571 1460.8 572.2 1466 575.5C1470.5 578.4 1472.2 578.2 1474.4 574.7C1475.9 572.3 1471.9 568.5 1465.1 565.9C1457.5 563.1 1443.6 563.5 1437.2 566.9C1430.7 570.3 1425.4 575.6 1422.3 581.8C1419.9 586.7 1419.5 588.7 1419.5 596C1419.5 603.2 1419.9 605.2 1422.2 609.6C1426.4 617.5 1433.9 623.6 1443.5 626.6C1448.5 628.2 1451.2 628.3 1458.3 627ZM1832.7 624.3C1840.5 620.4 1844.5 616.6 1847.9 609.8C1850.5 604.6 1851 602.5 1851 596.4C1851 586.4 1848.4 579.6 1841.9 573.1C1835.4 566.7 1828.6 564 1818.7 564C1814.4 564 1809.5 564.7 1806.6 565.7C1800 568.1 1791.8 575.7 1788.4 582.5C1783.3 593.1 1785.7 608.8 1793.8 617.3C1803.3 627.4 1820.4 630.4 1832.7 624.3ZM1944 626.9C1953.9 624.7 1960 618.1 1960 609.6C1960 600.4 1955.1 596 1941 592.5C1926.9 589 1923 586.6 1923 581.3C1923 576.5 1927.5 572.1 1932.7 571.8C1940.2 571.5 1945.6 572.2 1950 574.1L1954.5 576.1L1955.7 574.4C1957.3 572.1 1957.4 569.5 1955.8 568.2C1952.7 565.7 1942.6 563.8 1935.1 564.2C1921.3 565 1914.8 570.8 1914.6 582.1C1914.5 586.9 1914.9 588.3 1917 590.5C1920.5 594.3 1927.2 597.4 1936.9 599.9C1946.6 602.3 1949.7 604 1951.1 607.7C1952.7 612 1950.5 615.9 1945.1 618.3C1939 621 1929.7 620.1 1921.7 616.2L1915.9 613.3L1914.4 616.2C1913.6 617.8 1913.2 619.5 1913.5 620C1914.7 622 1922.4 625.2 1928.9 626.5C1937.2 628.1 1938.5 628.2 1944 626.9ZM937.5 626.4C938.4 626 940.7 622.4 942.5 618.3L945.9 611L962.2 611.2L978.4 611.5L979.7 614C980.4 615.4 982 618.8 983.3 621.5C985.2 625.7 986 626.5 988.5 626.8C994.9 627.3 994.8 626.6 984.7 604.4C979.5 592.9 973.4 579.5 971.1 574.5L967.1 565.5L962.3 565.2L957.5 565L943.8 595.2C934.3 616.2 930.5 625.7 931.3 626.2C932.8 627.1 935.3 627.2 937.5 626.4ZM1097.9 623.7C1104.6 621.3 1109.8 616.7 1113.6 609.8L1116.5 604.5L1116.5 595.5C1116.5 587.4 1116.2 585.9 1113.5 581.1C1109.8 574.5 1104.3 569.6 1097.3 567C1092.7 565.3 1089.5 565 1075.1 565C1060.6 565 1058.1 565.2 1057.6 566.6C1056.8 568.8 1056.8 625.5 1057.7 626.3C1058 626.7 1066 626.7 1075.4 626.4C1088.8 625.9 1093.7 625.3 1097.9 623.7ZM1213.1 616C1222.5 595.2 1233.8 569.2 1234.5 567.1L1235.2 564.9L1230.9 565.2L1226.5 565.5L1215.6 590.3C1206.7 610.2 1204.4 614.7 1203.6 613.3C1203.1 612.3 1198.1 601.1 1192.5 588.5L1182.4 565.5L1177.7 565.2C1175.1 565 1173 565.1 1173 565.4C1173 565.7 1174.8 569.9 1176.9 574.7C1183.7 589.8 1196.2 618.3 1197.7 622.2C1199.3 626.1 1200.7 626.9 1205.5 626.7L1208.4 626.5L1213.1 616ZM1544.7 626.2C1545.3 625.8 1547.3 622.3 1549.2 618.5L1552.5 611.5L1568.8 611.2L1585 611L1588.8 618.7C1591.9 625.3 1592.9 626.5 1595.2 626.8C1601.9 627.6 1601.8 627.3 1587.6 596C1579.4 578.1 1573.4 566 1572.2 565.2C1570.9 564.3 1569 564.1 1567.2 564.5L1564.2 565.1L1550.9 594.7C1543.5 611 1537.4 624.6 1537.2 625.1C1536.6 626.5 1542.7 627.5 1544.7 626.2ZM1703.8 624C1718.8 618.7 1726.6 603.7 1722.6 588C1720 577.8 1713.2 570.5 1702.9 566.6C1699.1 565.3 1695.3 565 1681.4 565.2L1664.5 565.5L1664.2 595.7L1664 625.9L1666.2 626.4C1667.5 626.6 1675.2 626.6 1683.4 626.4C1694.6 626 1699.8 625.4 1703.8 624ZM1066.5 617.8C1066.2 617.1 1066.1 606.6 1066.2 594.5L1066.5 572.5L1076.8 572.2C1088.9 571.9 1093.4 572.9 1099.1 577.3C1112.6 587.6 1110.3 609.5 1095 616.3C1089.2 619 1067.4 620.1 1066.5 617.8ZM1315.6 617.6C1310 615.5 1306.9 613 1303.7 607.8C1296.4 596.1 1300.8 580.8 1313.2 574.6C1322.8 569.8 1334.5 571.7 1341.7 579.2C1352.2 590.1 1349.3 609.6 1336.1 616.5C1331.5 618.8 1320.5 619.4 1315.6 617.6ZM1673 595.4L1673 571.8L1685.8 572.2L1698.5 572.6L1702.5 575.2C1707.6 578.4 1712.7 584.2 1713.7 587.8C1715.4 593.6 1714.6 602.3 1712 607C1707.2 615.6 1698.7 619 1681.8 619L1673 619L1673 595.4ZM1809.7 617.6C1800.2 614.1 1794.6 605.9 1794.6 595.5C1794.7 581.8 1804.6 572 1818.5 572C1842.6 572 1851.8 603.6 1831.2 615.7C1825.9 618.9 1815.5 619.8 1809.7 617.6ZM949.8 603.5C949.2 602.8 961.2 575 962.1 575C963 575 974.9 602.4 974.3 603.2C973.8 604.1 950.6 604.3 949.8 603.5ZM1556 603.3C1556 602 1568.3 575 1568.9 575C1569.7 575 1581 601 1581 602.8C1581 603.7 1577.8 604 1568.5 604C1561.6 604 1556 603.7 1556 603.3Z"/></svg></div>
+  <div class="name">Pimentel &amp; Kao Yien Advogados</div>
+  <p class="tag"><em>Soluções jurídicas para empresas e pessoas.</em><br>Da assessoria empresarial à proteção da sua marca, com atendimento em todo o Brasil.</p>
+
+  <div class="divider">Atendimento</div>
+
+  <a class="btn primary wa" data-msg="Olá! Vim pelo Instagram e gostaria de falar com a equipe da PKY Advogados." href="#" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg></span>
+    <span class="tx"><span class="t">Fale com nossa equipe</span><span class="d">WhatsApp do escritório</span></span>
+    <span class="ar">→</span>
+  </a>
+
+  <div class="divider">Áreas de atuação</div>
+
+  <a class="btn" href="https://app.pipefy.com/public/form/na0anVE-" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
+    <span class="tx"><span class="t">Assessoria empresarial</span><span class="d">Contratos, societário e rotina jurídica da empresa</span></span>
+    <span class="ar">→</span>
+  </a>
+
+  <a class="btn" href="https://rm.pkyadvogados.com.br/" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9h6M12 9v7"/></svg></span>
+    <span class="tx"><span class="t">Marcas e propriedade intelectual</span><span class="d">Registro e defesa de marcas no INPI</span></span>
+    <span class="ar">→</span>
+  </a>
+
+  <a class="btn" href="https://rmcrcc.pkyadvogados.com.br/" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
+    <span class="tx"><span class="t">Desconto no meu benefício (RMC e RCC)</span><span class="d">Análise de descontos de cartão consignado</span></span>
+    <span class="ar">→</span>
+  </a>
+
+  <div class="divider">Conheça o escritório</div>
+
+  <a class="btn" href="https://pkyadvogados.com.br/" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+    <span class="tx"><span class="t">Nosso site</span><span class="d">pkyadvogados.com.br</span></span>
+    <span class="ar">→</span>
+  </a>
+
+  <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rua+Cecilia+Meireles+55+Centro+Empresarial+da+Serra+Serra+ES" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+    <span class="tx"><span class="t">Como chegar</span><span class="d">Centro Empresarial da Serra · Serra/ES</span></span>
+    <span class="ar">→</span>
+  </a>
+
+  <p class="addr">
+    <b>Serra/ES</b> · Rua Cecília Meireles, 55, Sala 1207<br>Centro Empresarial da Serra<br>
+    <b>São Paulo/SP</b>
+  </p>
+
+  <div class="social">
+    <a href="https://instagram.com/pkyadvogados" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+    </a>
+    <a class="wa" data-msg="Olá! Vim pelo Instagram e gostaria de falar com a equipe da PKY Advogados." href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+    </a>
+    <a href="https://pkyadvogados.com.br/" target="_blank" rel="noopener" aria-label="Nosso site">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+    </a>
+  </div>
+
+  <footer>Pimentel &amp; Kao Yien Advogados<br>Conteúdo de caráter informativo.</footer>
+</main>
+
+<script>
+  /* >>> Coloque aqui o número do WhatsApp do escritório: DDI + DDD + número, só dígitos <<< */
+  var WHATSAPP = "5527999610170";
+
+  document.querySelectorAll("a.wa").forEach(function (a) {
+    var msg = a.getAttribute("data-msg") || "";
+    a.href = "https://wa.me/" + WHATSAPP + (msg ? "?text=" + encodeURIComponent(msg) : "");
+  });
+</script>
+</body>
+</html>
